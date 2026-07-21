@@ -48,7 +48,7 @@
 
         <!-- Dependency versions -->
         <httpclient5.version>5.6.2</httpclient5.version>
-        <json.version>20260522</json.version>
+        <json.version>20260719</json.version>
         <junit.jupiter.version>5.14.1</junit.jupiter.version>
         <mockito.version>5.23.0</mockito.version>
 
