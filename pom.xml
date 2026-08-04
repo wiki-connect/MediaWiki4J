@@ -47,7 +47,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!-- Dependency versions -->
-        <httpclient5.version>5.6.2</httpclient5.version>
+        <httpclient5.version>5.6.3</httpclient5.version>
         <json.version>20260719</json.version>
         <junit.jupiter.version>6.1.2</junit.jupiter.version>
         <mockito.version>5.23.0</mockito.version>
