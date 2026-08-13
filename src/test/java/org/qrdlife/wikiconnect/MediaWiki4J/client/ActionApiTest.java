@@ -72,15 +72,6 @@ class ActionApiTest {
     }
 
     @Test
-    void testSetFileCookie() {
-        File cookieFile = new File(tempDir, "test-cookies.txt");
-        ActionApi result = actionApi.setFileCookie(cookieFile);
-
-        assertSame(actionApi, result);
-        assertTrue(cookieFile.exists() || !cookieFile.exists()); // just ensures no exception
-    }
-
-    @Test
     void testSetCookieStore() {
         BasicCookieStore customCookieStore = new BasicCookieStore();
         ActionApi result = actionApi.setCookieStore(customCookieStore);

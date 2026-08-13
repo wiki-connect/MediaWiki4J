@@ -4,9 +4,7 @@ import org.apache.hc.client5.http.cookie.BasicCookieStore;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
 import org.apache.hc.client5.http.impl.classic.HttpClients;
 import org.apache.hc.client5.http.protocol.HttpClientContext;
-import org.qrdlife.wikiconnect.MediaWiki4J.client.cookie.FileCookieJar;
 
-import java.io.File;
 import java.util.Map;
 import java.util.logging.Logger;
 
@@ -102,19 +100,6 @@ public class ActionApi {
     public ActionApi setCookieStore(BasicCookieStore cookieStore) {
         this.cookieStore = cookieStore;
         logger.info("Cookie store set");
-        return this;
-    }
-
-    /**
-     * Sets a cookie store that persists session cookies in a file.
-     *
-     * @param file the file to store cookies.
-     * @return this instance for method chaining.
-     */
-    @Deprecated
-    public ActionApi setFileCookie(File file) {
-        this.cookieStore = new FileCookieJar(file);
-        logger.info("File cookie set with file: " + file.getPath());
         return this;
     }
 
