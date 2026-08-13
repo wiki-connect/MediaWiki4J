@@ -83,11 +83,11 @@ public class ActionApi {
      */
     public ActionApi setGlobalPerms(Map<String, Object> params) {
         if (params == null || params.isEmpty()) {
-            logger.warning("Permissions map is null or empty");
+            logger.warning("Parameters map is null or empty");
             throw new IllegalArgumentException("Perms map cannot be null or empty");
         }
         this.globalParams = params;
-        logger.info("Global permissions set: " + params);
+        logger.info("Global parameters set: " + params);
         return this;
     }
 
