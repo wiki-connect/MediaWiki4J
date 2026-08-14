@@ -178,21 +178,24 @@ public class Requester {
      * @throws JSONException  if the response cannot be parsed as valid JSON.
      */
     private void checkForErrors(String response, String action) throws UsageException, JSONException {
-        JSONObject result = new JSONObject(response);
+        // quick check to avoid parsing when not needed
+        if (response.contains("\"error\"")) {
+            JSONObject result = new JSONObject(response);
 
-        if (result.has("error")) {
-            JSONObject error = result.getJSONObject("error");
-            throw new UsageException(
-                    error.optString("code", "unknown"),
-                    error.optString("info", "No error information provided"),
-                    response);
-        }
+            if (result.has("error")) {
+                JSONObject error = result.getJSONObject("error");
+                throw new UsageException(
+                        error.optString("code", "unknown"),
+                        error.optString("info", "No error information provided"),
+                        response);
+            }
 
-        if (result.has(action)) {
-            JSONObject _action = result.getJSONObject(action);
+            if (result.has(action)) {
+                JSONObject _action = result.getJSONObject(action);
 
-            if ("Failed".equals(_action.optString("result"))) {
-                throw new UsageException(action + "_failed", _action.optString("reason"), response);
+                if ("Failed".equals(_action.optString("result"))) {
+                    throw new UsageException(action + "_failed", _action.optString("reason"), response);
+                }
             }
         }
     }
