@@ -179,7 +179,7 @@ public class Requester {
      */
     private void checkForErrors(String response, String action) throws UsageException, JSONException {
         // quick check to avoid parsing when not needed
-        if (response.contains("\"error\"")) {
+        if (response.contains("\"error\"") || response.contains("\"result\"")) {
             JSONObject result = new JSONObject(response);
 
             if (result.has("error")) {
